@@ -1,0 +1,9 @@
+{
+    "compilerOption": {
+        "strict": false
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
+
