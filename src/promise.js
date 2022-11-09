@@ -1,4 +1,5 @@
 // @ts-check
+const fs = require('fs')
 
 function setTimeoutPromise(ms) {
   return new Promise((resolve, reject) => {
@@ -13,8 +14,10 @@ async function star(age) {
 
 async function aaa() {
   console.log('await전')
+  const result = await fs.promises.readFile('src/test2.js', 'utf-8')
+  console.log(result)
   await setTimeoutPromise(1000).then((value) => {
-    //await 쓰면 promise의 resolve가 호출될 때까지 기다립니다. 그래서 aaa함수 진행이 멈추고 then에서 1이 먼저 뜨고 aaa가 뜬다.
+    // await 쓰면 promise의 resolve가 호출될 때까지 기다립니다. 그래서 aaa함수 진행이 멈추고 then에서 1이 먼저 뜨고 aaa가 뜬다.
     console.log(value)
   })
   star(22).then((value) => console.log(value))
